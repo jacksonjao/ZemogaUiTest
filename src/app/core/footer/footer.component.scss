@@ -1,0 +1,39 @@
+@import "src/styles";
+
+.footer__nav{
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__list{
+  display: flex;
+  align-items: center;
+}
+
+.footer__follow-us .footer__item:first-of-type {
+  @include lato-font($gray-color, 12, 'light')
+}
+
+  .footer__item{
+  @include lato-font($gray-color-2, 12, 'light')
+}
+
+.footer__item:not(:first-of-type){
+  margin-left: 1rem;
+}
+@media (max-width: 1020px) {
+  .footer{
+    padding: 0 $size * 16;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  .footer__nav{
+    flex-direction: column;
+  }
+  .footer__follow-us{
+    margin-top: $size * 8;
+  }
+}

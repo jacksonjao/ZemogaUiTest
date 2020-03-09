@@ -1,0 +1,95 @@
+@import "src/styles";
+:host{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: $size * 450;
+  width: $size * 500;
+  z-index: 0;
+  justify-content: space-between;
+  *{
+    z-index: 1;
+  }
+}
+
+:host:before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba($gray-color-3, 0.45);
+  z-index: 0;
+}
+
+.main-card__text-content{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $size*30 ;
+}
+
+
+.main-card__ask{
+  @include lato-font($white-color, 16, 'light')
+}
+
+.main-card__title{
+  @include lato-font($white-color, 60, 'regular');
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main-card__paragraph{
+  @include lato-font($white-color, 21, 'light');
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: $size * 100;
+}
+
+.main-card__link {
+  @include lato-font($white-color, 14, 'light');
+  span:last-of-type{
+    text-decoration: underline;
+  }
+}
+
+
+.main-card__ask-2{
+  @include lato-font($white-color, 20, 'bold')
+}
+
+.main-card__buttons{
+  display: flex;
+}
+
+.main-card__buttons button{
+  flex: 1;
+  height: $size * 80;
+  border: none;
+  color: $white-color;
+  justify-self: flex-end;
+
+}
+
+.main-card__buttons i{
+  font-size: $size * 35;
+}
+
+.main-card__buttons button:first-of-type{
+  background-color:rgba($primary-color, .9);
+}
+
+.main-card__buttons button:last-of-type{
+  background-color:rgba($secondary-color, .9);
+}
+
+
+
+@media (max-width: 768px) {
+  :host{
+    height: $size * 450;
+    width: 100%;
+  }
+}

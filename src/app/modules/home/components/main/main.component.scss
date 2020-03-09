@@ -1,0 +1,52 @@
+@import "src/styles";
+:host{
+  display: flex;
+  flex-direction: column;
+  min-height: $size * 740;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+.main{
+  display: flex;
+  flex-direction: column;
+  margin-top: $size * 70;
+ flex: 1;
+}
+
+.main__closing{
+  background: rgba($gray-color, 0.3);
+  height: $size * 50;
+  display: flex;;
+  align-items: center;;
+}
+
+.main__closing p{
+  height: 100%;
+  display: flex;;
+  align-items: center;
+}
+
+.main__closing p:first-of-type{
+  flex: 0.47;
+  justify-content: flex-end;
+  padding-right: $size * 8;
+  position: relative;
+  @include lato-font($white-color, 13, 'regular')
+}
+
+.main__closing p:last-of-type{
+  background: rgba($white-color, 0.7);
+  flex: 1;
+  position: relative;
+  padding-left: $size * 10;
+  @include lato-font($gray-color-2, 36, 'light');
+}
+
+.main__closing p:last-of-type span{
+  @include lato-font( $gray-color-2, 36, 'regular');
+  margin-right: $size * 8;
+}

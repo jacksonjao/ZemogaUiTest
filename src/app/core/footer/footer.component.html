@@ -1,0 +1,15 @@
+
+<div class="container">
+<footer class="footer">
+  <hr class="dashed">
+  <nav class="footer__nav">
+    <ul class="footer__list">
+      <li class="footer__item" *ngFor="let item of items" [routerLink]="item.url">{{item.text}}</li>
+    </ul>
+    <ul class="footer__list footer__follow-us">
+      <li class="footer__item">Follow Us</li>
+      <li class="footer__item" *ngFor="let item of socialNetworkItems"  [routerLink]="item.url"><img [src]="item.text" alt=""></li>
+    </ul>
+  </nav>
+</footer>
+</div>

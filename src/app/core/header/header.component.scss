@@ -1,0 +1,61 @@
+@import "src/styles";
+:host{
+  display: flex;
+  position: relative;
+  width: 100%;
+  background:  $gray-color-3;
+  background: linear-gradient(0deg, $transparent-color 0%, $gray-color-3 100%);
+  height: $size * 100;
+}
+.header{
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header__title{
+  @include lato-font($white-color, 32, 'bold');
+}
+
+.header__navigation{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+.header__list{
+  display: flex;
+}
+
+.header__item{
+  @include lato-font($white-color, 16, 'light');
+}
+
+.header__item:not(:last-child){
+  margin-right: 2rem;
+}
+
+.header__search-icon{
+  color: $white-color;
+}
+
+
+@media (max-width: 1020px) {
+  .header{
+    padding: $size * 16;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .home__information{
+    flex-direction: column;
+  }
+
+  .header{
+    flex-direction: column;
+  }
+  .header__list{
+    margin-top: $size * 8;
+  }
+}

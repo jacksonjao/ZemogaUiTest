@@ -1,0 +1,10 @@
+<header class="header container">
+  <a routerLink="/home"><h1 class="header__title">Rule of thumb</h1></a>
+  <nav class="header__navigation">
+    <ul class="header__list">
+      <li class="header__item" *ngFor="let item of items" >
+        <a [routerLink]="item.url">{{item.text}}</a></li>
+      <li class="header__item"><button><i class="material-icons header__search-icon">search</i></button></li>
+    </ul>
+  </nav>
+</header>

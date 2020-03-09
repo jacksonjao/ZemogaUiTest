@@ -1,0 +1,40 @@
+<i class="material-icons ruling__vote-indicator ruling__vote-indicator-dislike"
+   *ngIf="ruling.positiveAverage<ruling.negativeAverage" aria-hidden="true">thumb_down</i>
+<i class="material-icons ruling__vote-indicator ruling__vote-indicator-like"
+   *ngIf="ruling.positiveAverage>ruling.negativeAverage" aria-hidden="true">thumb_up</i>
+
+<article class="rulings__content">
+
+  <h1 class="rulings__title">{{ruling.title}}</h1>
+  <p class="rulings__date">1 month ago in Entertainment</p>
+  <br>
+
+  <p class="rulings__paragraph">{{!hasVoted ? ruling.paragraph : thanksForVoting}}</p>
+  <br>
+
+  <span class="rulings__buttons">
+
+    <button class="rulings__button rulings__button-like"
+            *ngIf="!hasVoted"
+            [ngClass]="numberOfVote === 1? 'rulings__button--active':''"
+            (click)="likes(1)">
+      <i class="material-icons" aria-hidden="true">thumb_up</i>
+    </button>
+    <button class="rulings__button rulings__button-dislike"
+            *ngIf="!hasVoted"
+            [ngClass]="numberOfVote === -1? 'rulings__button--active':''"
+            (click)="likes(-1)">
+  <i class="material-icons" aria-hidden="true">thumb_down</i></button>
+  <button class="rulings__button-vote" [disabled]="numberOfVote===0"
+          (click)="vote(ruling.id)">{{textButtonToVote}}</button>
+  </span>
+</article>
+
+<div class="rulings__indicators">
+  <span class="rulings__indicator rulings__indicator-like" [ngStyle]="{'flex-basis': ruling.positiveAverage+'%'}">
+    <i class="material-icons rulings__indicator-icon" aria-hidden="true">thumb_up</i> {{ruling.positiveAverage}}%</span>
+  <span class="rulings__indicator rulings__indicator-dislike" [ngStyle]="{'flex-basis': ruling.negativeAverage+'%'}">{{ruling.negativeAverage}}%
+    <i class="material-icons rulings__indicator-icon" aria-hidden="true">thumb_down</i></span>
+</div>
+
+

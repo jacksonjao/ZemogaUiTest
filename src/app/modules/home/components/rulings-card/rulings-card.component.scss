@@ -1,0 +1,148 @@
+@import "src/styles";
+:host{
+  width: $size * 500;
+  height: $size * 550;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  *{
+    z-index: 1;
+  }
+}
+:host:after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background:  $gray-color-3;
+  background: linear-gradient(0deg, black 0%, $transparent-color 100%);
+}
+
+
+
+.rulings__title{
+  @include lato-font($white-color, 45, "regular")
+}
+
+
+.rulings__date{
+  @include lato-font($white-color, 12, "bold")
+}
+
+.rulings__paragraph{
+  @include lato-font($white-color, 16, "light");
+  height: $size * 50;
+}
+
+.rulings__buttons{
+  display: flex;
+  align-items: center;
+  button{
+    margin-left: $size * 16;
+  }
+}
+
+.rulings__content{
+  padding: $size*30 $size*40;
+}
+
+.rulings__button{
+  width: $size * 31;
+  height: $size * 31;
+  border: none;
+
+  i{
+    font-size: $size * 18;
+    color: $white-color;
+  }
+}
+
+.rulings__button--active{
+  border: solid $size*2 $white-color;
+}
+
+.rulings__button-like{
+  background: $primary-color;
+}
+
+.rulings__button-dislike{
+  background: $secondary-color;
+}
+
+.rulings__button-vote{
+  border: solid $size*1 $white-color;
+background: $transparent-color;
+  padding: $size*10  $size*20;
+@include lato-font($white-color, 14, "regular");
+}
+
+.ruling__vote-indicator{
+  width: $size * 31;
+  height: $size * 31;
+  color:  $white-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $size * 18;
+  margin-bottom: $size * -75;
+}
+.ruling__vote-indicator-like{
+  background: $primary-color;
+}
+
+.ruling__vote-indicator-dislike{
+  background: $secondary-color;
+}
+
+.rulings__indicators{
+  display: flex;
+  height: $size * 50;
+  color: $white-color;
+}
+
+.rulings__indicator{
+  transition: 0.5s ease-in;
+}
+
+.rulings__indicator-like, .rulings__indicator-dislike{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  @include lato-font($white-color, 29, "light");
+}
+
+.rulings__indicator-icon{
+  color: $white-color;
+  font-size: $size * 28;
+}
+
+.rulings__indicator-like .rulings__indicator-icon{
+  margin-right: $size * 8;
+}
+
+.rulings__indicator-dislike .rulings__indicator-icon{
+  margin-left: $size * 8;
+}
+.rulings__indicator-like{
+  background: rgba($primary-color, 0.7);
+  padding-left: $size * 16;
+}
+
+.rulings__indicator-dislike{
+  background:  rgba($secondary-color, 0.7);
+  justify-content: flex-end;
+  padding-right: $size * 16;
+}
+
+
+
+@media (max-width: 768px) {
+  :host{
+    width: 100%;
+  }
+}

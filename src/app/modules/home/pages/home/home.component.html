@@ -1,0 +1,33 @@
+<app-main></app-main>
+<div class="container">
+<div class="home__information" *ngIf="!isCloseMessage">
+  <span>
+      <h2>Speak out. Be heard.</h2>
+  <h1>Be counted</h1>
+  </span>
+  <span>
+    <p>Rule of Thumb is a crowd sourced court of public opinion where anyone and everyone can speak out and speak freely. It’s easy: You share your opinion, we analyze and put the data in a public report.</p>
+    <button (click)="isCloseMessage = true"><i class="material-icons" aria-hidden="true">close</i></button>
+  </span>
+</div>
+
+<section class="rulings">
+  <br>
+  <h2 class="rulings__title">Votes</h2>
+  <br>
+  <ul class="rulings__list">
+    <li class="rulings__item" *ngFor="let ruling of rulings">
+      <app-rulings-card (voteEmitter)="vote($event)" [ruling]="ruling"></app-rulings-card>
+    </li>
+
+  </ul>
+
+</section>
+  <br>
+  <section class="home__suggest">
+    <p class="home__suggest-text">Is there anyone else you would want us to add?</p>
+    <button class="home__suggest-button">Submit a Name</button>
+  </section>
+</div>
+
+
