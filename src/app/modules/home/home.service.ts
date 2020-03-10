@@ -4,8 +4,9 @@ import {RulingModel} from '../../shared/models/ruling.model';
 @Injectable()
 export class HomeService {
   dataBase = localStorage;
+  rulings: RulingModel[];
   constructor() {
-    const rulings = [{
+    this.rulings = [{
       id: 0,
       title: 'Kanye West',
       image: 'https://static.hiphopdx.com/2019/09/190929-kanye-west-getty-800x600.jpg',
@@ -53,17 +54,21 @@ export class HomeService {
         positiveAverage: 0,
         negativeAverage: 0,
       }];
-    if (!this.dataBase.getItem(`votes/${0}`)) {
-    rulings.forEach((ruling, index) => {
-      this.saveInDB(`votes/${index}`, ruling);
-    });
-  }
+    this.createLocalData(this.rulings);
   }
 
-  private getDataFromDB(endpoint: string) {
+  createLocalData(rulings) {
+    if (!this.dataBase.getItem(`votes/${0}`)) {
+      rulings.forEach((ruling, index) => {
+        this.saveInDB(`votes/${index}`, ruling);
+      });
+    }
+  }
+
+   getDataFromDB(endpoint: string) {
     return JSON.parse(this.dataBase.getItem(endpoint));
   }
-  private saveInDB(endpoint: string, obj: object) {
+   saveInDB(endpoint: string, obj: object) {
     this.dataBase.setItem(endpoint, JSON.stringify(obj));
   }
 

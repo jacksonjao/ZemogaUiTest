@@ -34,4 +34,23 @@ describe('RulingsCardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should set like', () => {
+    component.likes(1)
+    expect(component.numberOfVote).toEqual(1);
+  });
+
+  it('should vote and send emit', () => {
+    spyOn(component.voteEmitter, 'emit').and.callThrough();
+    component.vote(0);
+    expect(component.voteEmitter.emit).toHaveBeenCalled();
+  });
+
+  it('should not vote and does not send emit', () => {
+    spyOn(component.voteEmitter, 'emit').and.callThrough();
+    component.hasVoted = true;
+    component.vote(0);
+    expect(component.voteEmitter.emit).not.toHaveBeenCalled();
+  });
 });
